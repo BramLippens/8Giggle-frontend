@@ -13,7 +13,7 @@ function Feed() {
 
   useEffect(() => {
     api.get("/posts").then((response) => {
-      setPosts(response.data.posts);
+      setPosts(response.data.data.items);
     });
   }, []);
 
