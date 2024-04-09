@@ -3,10 +3,10 @@ import { useNavigate } from "react-router-dom";
 interface Props {
   id: number;
   title: string;
-  image: string;
+  imagePath: string;
 }
 
-function Post({ id, title, image }: Props) {
+function Post({ id, title, imagePath }: Props) {
   const navigate = useNavigate();
   function handleClick(): void {
     navigate(`/posts/${id}`);
@@ -21,7 +21,7 @@ function Post({ id, title, image }: Props) {
         {title}
       </h2>
 
-      <img className="mt-2 w-full h-auto" src={image} alt={title} />
+      <img className="mt-2 w-full h-auto" src={imagePath} alt={title} />
     </div>
   );
 }

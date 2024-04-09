@@ -1,43 +1,22 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 import Post from "./Post";
+import api from "../api";
 
-const POSTS = [
-  {
-    id: 1,
-    title:
-      "This is the first postThis is the first postThis is the first postThis is the first postThis is the first post",
-    image: "https://picsum.photos/400/300",
-  },
-  {
-    id: 2,
-    title: "Post 2",
-    content: "This is the second post",
-    image: "https://picsum.photos/500/200",
-  },
-  {
-    id: 3,
-    title: "This is the third post",
-    image: "https://picsum.photos/200/300",
-  },
-  {
-    id: 4,
-    title: "This is the fourth post",
-    image: "https://picsum.photos/200/300",
-  },
-  {
-    id: 5,
-    title: "This is the fifth post",
-    image: "https://picsum.photos/200/300",
-  },
-  {
-    id: 6,
-    title: "This is the sixth post",
-    image: "https://picsum.photos/1200/300",
-  },
-];
+type Post = {
+  id: number;
+  title: string;
+  imagePath: string;
+};
 
 function Feed() {
-  const [posts, setPosts] = useState(POSTS);
+  const [posts, setPosts] = useState<Post[]>([]);
+
+  useEffect(() => {
+    api.get("/posts").then((response) => {
+      setPosts(response.data.posts);
+    });
+  }, []);
+
   return (
     <div className="flex justify-center">
       <div className="flex flex-col">
