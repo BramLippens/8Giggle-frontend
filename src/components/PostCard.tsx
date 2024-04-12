@@ -13,6 +13,11 @@ const PostCard = React.forwardRef(({ id, title, imagePath }: Props, ref) => {
     navigate(`/posts/${id}`);
   }
 
+  if (id > 20) {
+    const temp = imagePath.split("wwwroot")[1];
+    imagePath = "https://localhost:7264/" + temp;
+  }
+
   const postBody = (
     <div className="border p-2 my-4 max-w-[400px]">
       <h2
@@ -21,7 +26,6 @@ const PostCard = React.forwardRef(({ id, title, imagePath }: Props, ref) => {
       >
         {title}
       </h2>
-
       <img className="mt-2 w-full h-auto" src={imagePath} alt={title} />
     </div>
   );
