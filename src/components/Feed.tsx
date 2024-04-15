@@ -40,7 +40,7 @@ function Feed({}: FeedProps) {
   });
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center flex-1 bg-stone-800 text-white">
       <div className="flex flex-col">
         {content}
         {loading && <p className="center">Loading...</p>}
