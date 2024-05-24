@@ -7,16 +7,14 @@ const Navbar = () => {
   const handleNav = () => setIsNavVisible(!isNavVisible);
   const closeNav = () => setIsNavVisible(false);
 
-  const navItems = [
-    { id: 1, text: "Home", link: "/" },
-    { id: 2, text: "About", link: "/about" },
-    { id: 3, text: "Contact", link: "/contact" },
-  ];
+  const navItems = [{ id: 1, text: "Create", link: "/create-post" }];
 
   return (
-    <div className="bg-black flex justify-between items-center h-24 max-w-[1240p] px-4 text-white sticky">
+    <div className="bg-black flex justify-between items-center h-24 max-w-[1240p] px-4 text-white fixed w-full">
       {/* Logo */}
-      <h1 className="w-full text-3xl font-bold text-[#00df9a]">8Giggle</h1>
+      <h1 className="w-full text-3xl font-bold text-[#00df9a]">
+        <Link to={"/"}>8Giggle</Link>
+      </h1>
 
       {/* Desktop nav */}
       <ul className="hidden md:flex space-x-4">

@@ -2,11 +2,7 @@ import { useCallback, useRef, useState } from "react";
 import PostCard from "./PostCard";
 import usePostSearch, { Post } from "../hooks/usePostSearch";
 
-interface FeedProps {
-  // Add an optional props interface if needed
-}
-
-function Feed({}: FeedProps) {
+function Feed() {
   const [pageNumber, setPageNumber] = useState<number>(1);
   const { posts, hasMore, loading, error } = usePostSearch("", pageNumber);
 
@@ -40,7 +36,7 @@ function Feed({}: FeedProps) {
   });
 
   return (
-    <div className="flex justify-center flex-1 bg-stone-800 text-white">
+    <div className="flex justify-center flex-1 ">
       <div className="flex flex-col">
         {content}
         {loading && <p className="center">Loading...</p>}
